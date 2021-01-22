@@ -1,10 +1,12 @@
 if(process.env.NODE_ENV === 'development') { require('dotenv').config() }
 
-const http = require('https')
+const https = require('https')
+const http = require('http')
 
 let pingCnt = 0
 
 const server = http.createServer((req, res) => {
+    console.log('request')
     pingCnt++
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -20,7 +22,6 @@ const pingInterval = 1000 * 60 * 10
 // const pingInterval = 1000 * 60
 const hostsList = process.env.PING_LIST
 
-
 setInterval(() => {
     for(host of hostsList.split(';')){
         doPing(host)
@@ -29,7 +30,7 @@ setInterval(() => {
 
 function doPing(url){
     console.time(url)
-    http
+    https
         .get(url)
         .on('response', res => {
             const { statusCode } = res;
