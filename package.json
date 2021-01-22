@@ -1,0 +1,19 @@
+{
+  "name": "heroku-keep-alive",
+  "version": "1.0.0",
+  "description": "Simple nodejs server that can be configured to ping another server periodically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inakikani/heroku-keep-alive.git"
+  },
+  "author": "inakikaninaki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inakikani/heroku-keep-alive/issues"
+  },
+  "homepage": "https://github.com/inakikani/heroku-keep-alive#readme"
+}
