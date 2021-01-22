@@ -1,9 +1,11 @@
-import http from 'http'
+if(process.env.NODE_ENV === 'development') { require('dotenv').config() }
+
+const http = require('http')
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.write('OK\n');
+    res.write(`OK\n${process.env.NODE_ENV}`);
     res.end()
 });
 
