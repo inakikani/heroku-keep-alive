@@ -16,7 +16,7 @@ const pingIntervalMilliseconds = 1000 * 60 * pingIntervalMinutes
 const hostsList = process.env.PING_LIST.split(';')
 const commas = new RegExp(',', 'g')
 
-const errorThreshold = 1
+const errorThreshold = process.env.MAX_ERROR_COUNT || 1
 let errors = new Map()
 
 // Start server
