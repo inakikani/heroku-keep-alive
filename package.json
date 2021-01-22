@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/inakikani/heroku-keep-alive/issues"
   },
-  "homepage": "https://github.com/inakikani/heroku-keep-alive#readme"
+  "homepage": "https://github.com/inakikani/heroku-keep-alive#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.14.22"
+  },
+  "engines": {
+    "node": "14.x"
+  }
 }
