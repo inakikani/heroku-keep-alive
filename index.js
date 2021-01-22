@@ -3,13 +3,10 @@ if(process.env.NODE_ENV === 'development') { require('dotenv').config() }
 const https = require('https')
 const http = require('http')
 
-let pingCnt = 0
-
 const server = http.createServer((req, res) => {
-    pingCnt++
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.write(`OK\n${process.env.NODE_ENV}\nRequested ${pingCnt} times`);
+    res.write(`OK\n${process.env.NODE_ENV}`);
     res.end()
 });
 
