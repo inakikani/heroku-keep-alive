@@ -13,19 +13,19 @@ const server = http.createServer((req, res) => {
     res.end()
 });
 
+const pingIntervalMinutes = Number(process.env.PING_INTERVAL_MIN || 25)
+const pingIntervalMilliseconds = 1000 * 60 * pingIntervalMinutes
+const hostsList = process.env.PING_LIST.split(';')
+
 server.listen(process.env.PORT, () => {
-    console.log(`server is listening on port: ${process.env.PORT}`)
+    console.log(`server is listening on port: ${process.env.PORT}\nPings every ${pingIntervalMinutes} minutes\nHosts :\n${hostsList.toString().replace(',','\n')}`)
 })
 
-// const pingInterval = 1000 * 60 * 10
-const pingInterval = 1000 * 60
-const hostsList = process.env.PING_LIST
-
 setInterval(() => {
-    for(host of hostsList.split(';')){
+    for(host of hostsList){
         doPing(host)
     }
-}, pingInterval)
+}, pingIntervalMilliseconds)
 
 function doPing(url){
     console.time(url)
