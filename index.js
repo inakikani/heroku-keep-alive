@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
     pingCnt++
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.write(`OK\n${process.env.NODE_ENV} - ${pingCnt}`);
+    res.write(`OK\n${process.env.NODE_ENV}\nPinged ${pingCnt} times`);
     res.end()
 });
 
@@ -16,8 +16,8 @@ server.listen(process.env.PORT, () => {
     console.log(`server is listening on port: ${process.env.PORT}`)
 })
 
-// const pingInterval = 1000 * 60 * 10
-const pingInterval = 1000 * 60
+const pingInterval = 1000 * 60 * 10
+// const pingInterval = 1000 * 60
 const hostsList = process.env.PING_LIST
 
 
